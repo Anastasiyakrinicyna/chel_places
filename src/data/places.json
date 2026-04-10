@@ -1,0 +1,18 @@
+{
+  "places": [
+    {
+      "id": 101,
+      "name": "Кировка (пешеходная улица)",
+      "category": "attractions",
+      "image": "https://images.unsplash.com/photo-1577086664693-894d8405334a",
+      "description": "Историческая пешеходная улица в центре города...",
+      "address": "ул. Кирова, Челябинск",
+      "workingHours": "Круглосуточно",
+      "price": "Бесплатно",
+      "rating": 4.8,
+      "phone": "+7 (351) 123-45-67",
+      "website": "https://kirovka.ru",
+      "coordinates": { "lat": 55.1599, "lng": 61.4026 }
+    }
+  ]
+}
