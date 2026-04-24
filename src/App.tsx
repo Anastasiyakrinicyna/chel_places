@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import bridge from '@vkontakte/vk-bridge';
 import { categories, placesData } from './data/places';
 import type { Place } from './types';
 import Header from './components/Header';
@@ -11,6 +12,20 @@ const App: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedPlace, setSelectedPlace] = useState<Place | null>(null);
+
+  // Инициализация VK Mini App
+  useEffect(() => {
+    const initVKApp = async () => {
+      try {
+        await bridge.send('VKWebAppInit');
+        console.log('VK Mini App успешно инициализировано!');
+      } catch (error) {
+        console.error('Ошибка при инициализации VK Bridge:', error);
+      }
+    };
+
+    initVKApp();
+  }, []);
 
   const filteredPlaces = useMemo(() => {
     return placesData.filter((place) => {
